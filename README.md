@@ -16,4 +16,4 @@ Kalp yağmuru efekti, özel mesajlar ve sürpriz butonu ile sevdiğinize tatlı 
 
 1. Projeyi klonlayın veya ZIP olarak indirin:
    ```bash
-   git clone https://github.com/kullaniciadi/ask-dolu-kalp.git
+   git clone [https://github.com/kullaniciadi/ask-dolu-kalp.git](https://github.com/AsyncDevss/romantik-web-sayfasi/tree/main).git
