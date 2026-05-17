@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevgililer Günü Özel 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a0a 0%, #3d0a1c 40%, #1a0a2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Candara', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Kalp yağmuru katmanı */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart-particle {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 24px;
+            animation: fall linear forwards;
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0.5);
+                opacity: 1;
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(20vh) rotate(90deg) scale(1.2);
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            background: rgba(255, 240, 245, 0.15);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 40px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(255, 100, 130, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            z-index: 10;
+            position: relative;
+            animation: cardPulse 4s infinite alternate;
+        }
+
+        @keyframes cardPulse {
+            0% {
+                box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(255, 100, 130, 0.3);
+            }
+            100% {
+                box-shadow: 0 35px 60px rgba(0, 0, 0, 0.8), inset 0 0 45px rgba(255, 80, 120, 0.5);
+            }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffeef2;
+            text-shadow: 0 0 25px #ff3366, 0 0 8px #ff1a4f;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            animation: glow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px #ff3366, 0 0 8px #ff1a4f;
+            }
+            to {
+                text-shadow: 0 0 45px #ff5e7e, 0 0 18px #ff0040, 0 0 30px #ffb3c6;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: #ffd6e0;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 77, 109, 0.7);
+        }
+
+        .heart-icon {
+            font-size: 3.5rem;
+            animation: beat 1.2s infinite;
+            display: inline-block;
+            margin: 0 10px;
+            filter: drop-shadow(0 0 18px #ff3366);
+        }
+
+        @keyframes beat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(1.25);
+            }
+        }
+
+        .message {
+            color: #fadadd;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 25px 0 35px;
+            font-style: italic;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.15);
+            padding: 25px 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff3366, #ff5e7e);
+            border: none;
+            padding: 15px 38px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            margin-top: 10px;
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.9);
+            background: linear-gradient(45deg, #ff1a4f, #ff4d6d);
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .footer-note {
+            color: #fbb1c3;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 35px 20px;
+            }
+            .title {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Ana içerik kartı -->
+    <div class="card">
+        <div class="title">Sevgililer Günü <span class="heart-icon">💘</span></div>
+        <div class="subtitle">sonsuz aşkımın sahibine...</div>
+
+        <div class="message">
+            "Seni sevmek, kalbimin her atışında yeniden başlıyor. <br>
+            İyi ki varsın, iyi ki benimsin. 💖"
+        </div>
+
+        <button class="btn" id="specialMessageBtn">✨ Sana Özel Bir Sürpriz ✨</button>
+        <div class="footer-note">💕 Sonsuza kadar seninle 💕</div>
+    </div>
+
+    <script>
+        (function() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💝', '💘', '💞', '🩷', '♥️', '💓'];
+
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-particle');
+                const randomSymbol = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.textContent = randomSymbol;
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 28 + 14) + 'px';
+                const duration = Math.random() * 4 + 4;
+                heart.style.animationDuration = duration + 's';
+                heart.style.animationDelay = Math.random() * 1.5 + 's';
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    if (heart.parentNode) heart.parentNode.removeChild(heart);
+                }, (duration + 1.5) * 1000);
+            }
+
+            setInterval(() => {
+                createHeart();
+            }, 250);
+
+            for (let i = 0; i < 18; i++) {
+                setTimeout(() => createHeart(), i * 120);
+            }
+
+            const surpriseMessages = [
+                "Sen benim en güzel şansımsın. 🍀💘",
+                "Gözlerin kaybolduğum en derin deniz. 🌊💙",
+                "Kalbim sadece senin için atıyor. 💓",
+                "Seninle her an bir ömre bedel. ⏳✨",
+                "Bir gülüşün dünyaları değiştirir. 🌸💖",
+                "Sonsuzluğa kadar seninle yürümek en büyük hayalim. 🌌💞",
+                "Aşkımız masallardan daha güzel. 📖💗",
+                "Seni sevmek nefes almak kadar doğal. 🌬️❤️"
+            ];
+
+            document.getElementById('specialMessageBtn').addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * surpriseMessages.length);
+                const msg = surpriseMessages[randomIndex];
+
+                const existingPopup = document.querySelector('.popup-message');
+                if (existingPopup) existingPopup.remove();
+
+                const popup = document.createElement('div');
+                popup.className = 'popup-message';
+                popup.textContent = msg;
+                popup.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(1);
+                    background: rgba(255, 220, 230, 0.95);
+                    backdrop-filter: blur(20px);
+                    -webkit-backdrop-filter: blur(20px);
+                    color: #b3002d;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    padding: 35px 45px;
+                    border-radius: 60px;
+                    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 50px #ff3366;
+                    z-index: 999;
+                    text-align: center;
+                    letter-spacing: 1px;
+                    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    border: 2px solid #ff4d6d;
+                    max-width: 85vw;
+                `;
+
+                const styleSheet = document.createElement('style');
+                styleSheet.textContent = `
+                    @keyframes popIn {
+                        0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+                        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                    }
+                    @keyframes popOut {
+                        0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                        100% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(styleSheet);
+                document.body.appendChild(popup);
+
+                setTimeout(() => {
+                    popup.style.animation = 'popOut 0.4s forwards';
+                    setTimeout(() => {
+                        if (popup.parentNode) popup.parentNode.removeChild(popup);
+                        styleSheet.remove();
+                    }, 400);
+                }, 2500);
+            });
+
+            document.querySelector('.card').addEventListener('click', function(e) {
+                if (e.target.tagName === 'BUTTON') return;
+                const miniHeart = document.createElement('span');
+                miniHeart.textContent = '💗';
+                miniHeart.style.cssText = `
+                    position: absolute;
+                    left: ${e.clientX - this.getBoundingClientRect().left - 15}px;
+                    top: ${e.clientY - this.getBoundingClientRect().top - 15}px;
+                    font-size: 2rem;
+                    pointer-events: none;
+                    animation: miniPop 0.8s ease-out forwards;
+                    z-index: 20;
+                `;
+                this.appendChild(miniHeart);
+                setTimeout(() => miniHeart.remove(), 800);
+            });
+
+            const miniStyle = document.createElement('style');
+            miniStyle.textContent = `
+                @keyframes miniPop {
+                    0% { transform: scale(0.5); opacity: 1; }
+                    100% { transform: translateY(-70px) scale(1.8); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(miniStyle);
+        })();
+    </script>
+</body>
+</html>
